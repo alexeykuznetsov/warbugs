@@ -1,0 +1,14 @@
+Content\Parts\testBody.xnb
+Content\Parts\result.xnb
+Content\Parts\Bug1\EyesComp.xnb
+Content\Backgrounds\background8.xnb
+Content\Parts\Bug1\HeadComp.xnb
+Content\Parts\Bug1\CarapaceComp.xnb
+Content\Parts\Bug1\JawsComp.xnb
+Content\Backgrounds\background4.xnb
+Content\Backgrounds\background11.xnb
+Content\Backgrounds\background13.xnb
+Content\Parts\Bug1\LegsComp.xnb
+Content\Controls\ControlCircle.xnb
+Content\SpriteFont1.xnb
+Content\SpriteFont1.spritefont

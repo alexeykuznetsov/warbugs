@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Parts\testBody.png</Source>
+      <Name>Parts\testBody</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Parts\testBody.xnb</Output>
+      <Time>2014-02-25T10:00:55.7690783+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Parts\result.png</Source>
+      <Name>Parts\result</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Parts\result.xnb</Output>
+      <Time>2014-02-25T10:06:48.0368602+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Parts\Bug1\EyesComp.png</Source>
+      <Name>Parts\Bug1\EyesComp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Parts\Bug1\EyesComp.xnb</Output>
+      <Time>2014-03-02T12:28:04.1703643+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\background8.jpg</Source>
+      <Name>Backgrounds\background8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Backgrounds\background8.xnb</Output>
+      <Time>2014-03-02T17:14:37.1927894+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Parts\Bug1\HeadComp.png</Source>
+      <Name>Parts\Bug1\HeadComp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Parts\Bug1\HeadComp.xnb</Output>
+      <Time>2014-03-02T18:08:42.1617198+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Parts\Bug1\CarapaceComp.png</Source>
+      <Name>Parts\Bug1\CarapaceComp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Parts\Bug1\CarapaceComp.xnb</Output>
+      <Time>2014-03-02T18:23:42.6497442+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Parts\Bug1\JawsComp.png</Source>
+      <Name>Parts\Bug1\JawsComp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Parts\Bug1\JawsComp.xnb</Output>
+      <Time>2014-03-02T18:51:36.9138906+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\background4.jpg</Source>
+      <Name>Backgrounds\background4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Backgrounds\background4.xnb</Output>
+      <Time>2014-03-02T19:08:44.6940053+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\background11.jpg</Source>
+      <Name>Backgrounds\background11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Backgrounds\background11.xnb</Output>
+      <Time>2014-03-02T19:14:28.2613587+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\background13.png</Source>
+      <Name>Backgrounds\background13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Backgrounds\background13.xnb</Output>
+      <Time>2014-03-02T19:27:49.2920993+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Parts\Bug1\LegsComp.png</Source>
+      <Name>Parts\Bug1\LegsComp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Parts\Bug1\LegsComp.xnb</Output>
+      <Time>2014-03-02T21:43:34.7694707+04:00</Time>
+    </Item>
+    <Item>
+      <Source>Controls\ControlCircle.png</Source>
+      <Name>Controls\ControlCircle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Controls\ControlCircle.xnb</Output>
+      <Time>2014-03-03T23:47:01.9778343+04:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2014-03-01T16:18:30.0334093+04:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{C3E4239E-B855-46D5-B98E-9292B12D278D}</ContentProjectGUID>
+      <TargetPlatform>WindowsPhone</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLibContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\obj\Windows Phone\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2012-09-06T11:52:54+04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2012-09-06T11:52:54+04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2012-09-06T11:52:54+04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2012-09-06T11:52:54+04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2012-09-06T11:52:54+04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2012-09-06T11:52:54+04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-02-22T17:29:22.5298333+04:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
