@@ -51,25 +51,42 @@ namespace WarbugsLib.Lifeforms
             var drawPosition = new Vector2(position.X + CenterPoint.X, position.Y + CenterPoint.Y);
 
 
-            List<Texture2D> txtrs = new List<Texture2D>();
+            //List<Texture2D> txtrs = new List<Texture2D>();
+
+            //foreach (var sprite in _sprites)
+            //{
+            //    sprite.Speed = drawnSpeeds[sprite.Info.Type];
+            //    Texture2D txtr = sprite.NextSprite.Texture;
+
+            //    if (sprite.Info.Type!= LayerType.Legs)
+            //    _spriteBatch.Draw(txtr, new Vector2(drawPosition.X + 30, drawPosition.Y + 5), sprite.CurrentRectangle, Color.Black, rotation, CenterPoint, 1f, SpriteEffects.None, 1f);
+            //    txtrs.Add(txtr);
+            //}
+
+            //int c = 0;
+            //foreach (var sprite in _sprites)
+            //{
+            //    //sprite.Speed = drawnSpeeds[sprite.Info.Type];
+            //    _spriteBatch.Draw(txtrs[c], drawPosition, sprite.CurrentRectangle, Color.White, rotation, CenterPoint, 1f, SpriteEffects.None, 1f);
+            //    ++c;
+            //}
+
+
 
             foreach (var sprite in _sprites)
             {
-                sprite.Speed = drawnSpeeds[sprite.Info.Type];
                 Texture2D txtr = sprite.NextSprite.Texture;
+                sprite.Speed = drawnSpeeds[sprite.Info.Type];
 
-                if (sprite.Info.Type!= LayerType.Legs)
-                _spriteBatch.Draw(txtr, new Vector2(drawPosition.X + 30, drawPosition.Y + 5), sprite.CurrentRectangle, Color.Black, rotation, CenterPoint, 1f, SpriteEffects.None, 1f);
-                txtrs.Add(txtr);
+                if (sprite.Info.Type!= LayerType.Eyes && sprite.Info.Type!= LayerType.Legs)
+                _spriteBatch.Draw(txtr, new Vector2(drawPosition.X + 30, drawPosition.Y + 5), sprite.CurrentRectangle, new Color(0,0,0,220), rotation, CenterPoint, 1f, SpriteEffects.None, 0.5f);
+
+                _spriteBatch.Draw(txtr, drawPosition, sprite.CurrentRectangle, Color.White, rotation, CenterPoint, 1f, SpriteEffects.None, 0.5f);
             }
 
-            int c = 0;
-            foreach (var sprite in _sprites)
-            {
-                //sprite.Speed = drawnSpeeds[sprite.Info.Type];
-                _spriteBatch.Draw(txtrs[c], drawPosition, sprite.CurrentRectangle, Color.White, rotation, CenterPoint, 1f, SpriteEffects.None, 1f);
-                ++c;
-            }
+
+
+
 
             _spriteBatch.End();
         }
