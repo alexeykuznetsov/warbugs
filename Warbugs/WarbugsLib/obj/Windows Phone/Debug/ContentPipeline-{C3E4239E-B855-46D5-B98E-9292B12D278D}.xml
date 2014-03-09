@@ -110,6 +110,15 @@
       <Time>2014-03-03T23:47:01.9778343+04:00</Time>
     </Item>
     <Item>
+      <Source>Parts\Bug1\CarapaceTopComp.png</Source>
+      <Name>Parts\Bug1\CarapaceTopComp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Parts\Bug1\CarapaceTopComp.xnb</Output>
+      <Time>2014-03-09T14:50:31.5252398+04:00</Time>
+    </Item>
+    <Item>
       <Source>SpriteFont1.spritefont</Source>
       <Name>SpriteFont1</Name>
       <Importer>FontDescriptionImporter</Importer>

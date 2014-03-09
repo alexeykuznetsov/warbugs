@@ -46,3 +46,4 @@ C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\Warbugs\obj\
 C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\Warbugs\obj\Debug\Warbugs.dll
 C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\Warbugs\obj\Debug\Warbugs.pdb
 C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\Warbugs\obj\Debug\XapCacheFile.xml
+C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\Warbugs\Bin\Debug\Content\Parts\Bug1\CarapaceTopComp.xnb

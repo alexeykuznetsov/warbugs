@@ -9,6 +9,7 @@ namespace WarbugsLib.Lifeforms
     {
         Legs,
         Body,
+        BodyTop,
         Eyes,
         Jaws,
         Head

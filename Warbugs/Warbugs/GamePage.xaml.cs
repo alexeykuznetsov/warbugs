@@ -19,6 +19,8 @@ using WarbugsLib.Core;
 using WarbugsLib.Environment;
 using WarbugsLib.Controls;
 using Microsoft.Xna.Framework.Input.Touch;
+using WarbugsLib.Draw;
+using System.Diagnostics;
 
 namespace Warbugs
 {
@@ -33,8 +35,6 @@ namespace Warbugs
         Camera _camera;
 
         List<Lifeform> _lifeforms = new List<Lifeform>();
-
-        Texture2D _backgound;
 
         World _world;
 
@@ -83,13 +83,26 @@ namespace Warbugs
 
             _moveCopntrol = new MoveControl2(SharedGraphicsDeviceManager.Current.GraphicsDevice, contentManager);
 
-
-
             _lifeforms.Add(testBug);
+
+
+            for (int i = 0; i < 500; i++)
+            {
+                var tb = new TestBug(SharedGraphicsDeviceManager.Current.GraphicsDevice, contentManager, _camera);
+
+                tb.Position = new Vector2(Tools.Rand.Next(-5000, 5000), Tools.Rand.Next(-5000, 5000));
+                _lifeforms.Add(tb);
+                tb.Live();
+            }
+            
 
             _camera.Focus(testBug);
 
-            //testBug.Live();
+            
+
+            Drawer.Init(SharedGraphicsDeviceManager.Current.GraphicsDevice, contentManager, _camera);
+
+         
 
 
             TouchPanel.EnabledGestures = GestureType.FreeDrag | GestureType.DragComplete;
@@ -166,10 +179,19 @@ namespace Warbugs
             spriteBatch.DrawString(_text, _moveCopntrol.Direction.Degrees.ToString(), Vector2.Zero, Color.White);
             spriteBatch.End();
 
+            Stopwatch sw = new Stopwatch();
+
+            sw.Start();
             foreach (var item in _lifeforms)
             {
-                item.Draw();
+                item.RegisterOnDraw();
             }
+            sw.Stop();
+
+            sw.Start();
+            Drawer.Instance.DrawAll();
+            sw.Stop();
+
 
         }
     }

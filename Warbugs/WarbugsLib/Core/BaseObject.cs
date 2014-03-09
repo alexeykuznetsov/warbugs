@@ -28,7 +28,7 @@ namespace WarbugsLib.Core
 
         public BaseObject()
         {
-            Position = Vector2.Zero;
+           // Position = Vector2.Zero;
             Direction = new Direction(0);
         }
 

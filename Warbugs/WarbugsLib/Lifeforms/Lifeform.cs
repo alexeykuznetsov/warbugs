@@ -25,6 +25,12 @@ namespace WarbugsLib.Lifeforms
 
         public abstract void Live();
 
-        public abstract void Draw();
+        //public abstract void Draw();
+
+        //public abstract void DrawShadow();
+
+        //public abstract void DrawItself();
+
+        public abstract void RegisterOnDraw();
     }
 }

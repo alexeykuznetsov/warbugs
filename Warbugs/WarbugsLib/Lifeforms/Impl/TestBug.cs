@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WarbugsLib.Core;
+using WarbugsLib.Environment;
 using WarbugsLib.Lifeforms.Sprites;
 using WarbugsLib.Other;
 
@@ -33,18 +34,24 @@ namespace WarbugsLib.Lifeforms.Impl
         public TestBug(GraphicsDevice device, ContentManager contentManager, Camera camera)
             : base(device, contentManager, camera)
         {
+
+            
+
             _sprites = new CompositeSpriteBase(contentManager, device, camera,
                 new LayerInfo() { Name = @"Parts\Bug1\LegsComp", Type = LayerType.Legs, ZIndex = 1, FramesCount = 8, FrameWidth = 512 },
                 new LayerInfo() { Name = @"Parts\Bug1\CarapaceComp", Type = LayerType.Body, ZIndex = 4, FramesCount = 1, FrameWidth = 512 },
-                new LayerInfo() { Name = @"Parts\Bug1\JawsComp", Type = LayerType.Jaws, ZIndex = 2, FramesCount = 6, FrameWidth = 512 },
-                new LayerInfo() { Name = @"Parts\Bug1\EyesComp", Type = LayerType.Eyes, ZIndex = 5, FramesCount = 1, FrameWidth = 512 },
+                new LayerInfo() { Name = @"Parts\Bug1\CarapaceTopComp", Type = LayerType.BodyTop, ZIndex = 6, FramesCount = 1, FrameWidth = 512 },
+                new LayerInfo() { Name = @"Parts\Bug1\JawsComp", Type = LayerType.Jaws, ZIndex = 7, FramesCount = 6, FrameWidth = 512 },
+                new LayerInfo() { Name = @"Parts\Bug1\EyesComp", Type = LayerType.Eyes, ZIndex = 9, FramesCount = 1, FrameWidth = 512 },
                 new LayerInfo() { Name = @"Parts\Bug1\HeadComp", Type = LayerType.Head, ZIndex = 3, FramesCount = 1, FrameWidth = 512 }
+                
                 );
 
             CenterPoint = _sprites.CenterPoint;
 
             drawnSpeeds.Add(LayerType.Legs, 100);
             drawnSpeeds.Add(LayerType.Body, 0);
+            drawnSpeeds.Add(LayerType.BodyTop, 0);
             drawnSpeeds.Add(LayerType.Eyes, 0);
             drawnSpeeds.Add(LayerType.Head, 0);
             drawnSpeeds.Add(LayerType.Jaws, 20);
@@ -66,7 +73,7 @@ namespace WarbugsLib.Lifeforms.Impl
 
             if (_changeDirection)
             {
-                _nextDirection = new Direction(random.Next(359));
+                _nextDirection = new Direction(Tools.Rand.Next(359));
                 _changeDirection = false;
             }
 
@@ -95,7 +102,7 @@ namespace WarbugsLib.Lifeforms.Impl
 
                         if (delta - 180 < 10)
                         {
-                            if (_currentSpeed > 4) _currentSpeed = random.Next(4, 8);
+                            if (_currentSpeed > 4) _currentSpeed = Tools.Rand.Next(4, 8);
                             else _currentSpeed += 0.5f;
                             drawnSpeeds[LayerType.Legs] = 20;
 
@@ -112,7 +119,7 @@ namespace WarbugsLib.Lifeforms.Impl
 
                         if (delta < 10)
                         {
-                            if (_currentSpeed > 4) _currentSpeed = random.Next(4, 8);
+                            if (_currentSpeed > 4) _currentSpeed = Tools.Rand.Next(4, 8);
                             else _currentSpeed += 0.5f;
 
                             drawnSpeeds[LayerType.Legs] = 20;
@@ -134,11 +141,12 @@ namespace WarbugsLib.Lifeforms.Impl
             else
             {
                 drawnSpeeds[LayerType.Legs] = 0;
-                wait = random.Next(1, 100);
+                wait = Tools.Rand.Next(1, 100);
                 _currentSpeed = 1f;
-                distance = random.Next(0, 200);
+                distance = Tools.Rand.Next(0, 200);
                 _changeDirection = true;
             }
+
         }
 
 
@@ -164,16 +172,32 @@ namespace WarbugsLib.Lifeforms.Impl
             }
             else
             {
-                _currentSpeed = speedFactor / 13 + random.Next(-1, 3);
+                _currentSpeed = speedFactor / 13 + Tools.Rand.Next(-1, 3);
                 drawnSpeeds[LayerType.Legs] = (int)_currentSpeed * 25;
             }
 
             Move(_currentSpeed);
         }
 
-        public override void Draw()
+        //public override void Draw()
+        //{
+        //    _sprites.Draw(Position, (float)(Direction.Radians), drawnSpeeds);
+        //}
+
+        //public override void DrawShadow()
+        //{
+
+        //    _sprites.DrawShadows(Position, (float)(Direction.Radians), drawnSpeeds);
+        //}
+
+        //public override void DrawItself()
+        //{
+        //    _sprites.DrawsItself();
+        //}
+
+        public override void RegisterOnDraw()
         {
-            _sprites.Draw(Position, (float)(Direction.Radians), drawnSpeeds);
+            _sprites.RegisterOnDraw(Position, (float)(Direction.Radians), drawnSpeeds);
         }
     }
 }

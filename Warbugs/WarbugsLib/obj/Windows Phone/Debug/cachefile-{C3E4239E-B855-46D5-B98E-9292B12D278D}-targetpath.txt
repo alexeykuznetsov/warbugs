@@ -10,5 +10,6 @@ Content\Backgrounds\background11.xnb
 Content\Backgrounds\background13.xnb
 Content\Parts\Bug1\LegsComp.xnb
 Content\Controls\ControlCircle.xnb
+Content\Parts\Bug1\CarapaceTopComp.xnb
 Content\SpriteFont1.xnb
 Content\SpriteFont1.spritefont

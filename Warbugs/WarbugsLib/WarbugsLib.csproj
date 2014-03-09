@@ -84,7 +84,10 @@
     <Compile Include="Controls\MoveControl2.cs" />
     <Compile Include="Core\BaseObject.cs" />
     <Compile Include="Core\Direction.cs" />
+    <Compile Include="Draw\Drawer.cs" />
+    <Compile Include="Draw\DrawInfo.cs" />
     <Compile Include="Environment\Sector.cs" />
+    <Compile Include="Environment\Tools.cs" />
     <Compile Include="Environment\World.cs" />
     <Compile Include="Lifeforms\Sprites\CompositeSpriteBase.cs" />
     <Compile Include="Lifeforms\Impl\TestBug.cs" />
