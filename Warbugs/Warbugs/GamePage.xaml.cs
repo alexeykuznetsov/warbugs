@@ -38,9 +38,11 @@ namespace Warbugs
 
         World _world;
 
-        MoveControl _moveCopntrol;
+        MoveControl2 _moveCopntrol;
 
         SpriteFont _text;
+
+        bool _isDragStarted;
 
 
         public GamePage()
@@ -79,7 +81,7 @@ namespace Warbugs
 
             TestBug testBug = new TestBug(SharedGraphicsDeviceManager.Current.GraphicsDevice, contentManager, _camera);
 
-            _moveCopntrol = new MoveControl(SharedGraphicsDeviceManager.Current.GraphicsDevice, contentManager);
+            _moveCopntrol = new MoveControl2(SharedGraphicsDeviceManager.Current.GraphicsDevice, contentManager);
 
 
 
@@ -125,8 +127,12 @@ namespace Warbugs
 
                     case GestureType.DragComplete:
                         _moveCopntrol.Update(Vector2.Zero);
+                        _isDragStarted = false;
                         break;
                     case GestureType.FreeDrag:
+                        if (!_isDragStarted)
+                            _moveCopntrol.CenterPoint = gesture.Position;
+                        _isDragStarted = true;
                         _moveCopntrol.Update(gesture.Position);
                         break;
 
@@ -155,9 +161,6 @@ namespace Warbugs
 
 
             _world.Draw(_lifeforms[0].Position);
-
-            _moveCopntrol.Draw();
-
 
             spriteBatch.Begin();
             spriteBatch.DrawString(_text, _moveCopntrol.Direction.Degrees.ToString(), Vector2.Zero, Color.White);

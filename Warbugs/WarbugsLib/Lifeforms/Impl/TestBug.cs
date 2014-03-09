@@ -155,24 +155,20 @@ namespace WarbugsLib.Lifeforms.Impl
 
             if (delta > 10)
             {
-                drawnSpeeds[LayerType.Legs] = (int)speedFactor*4;
+                drawnSpeeds[LayerType.Legs] = (int)speedFactor * 4;
 
-                _currentSpeed = speedFactor*1.5f / delta;
+                _currentSpeed = speedFactor * 1.5f / delta;
 
                 Direction.Degrees += (int)speedFactor / 13 * Direction.GetRotationDir(dir.Degrees);
 
             }
             else
             {
-                _currentSpeed = speedFactor / 13 + random.Next(-1,3);
+                _currentSpeed = speedFactor / 13 + random.Next(-1, 3);
                 drawnSpeeds[LayerType.Legs] = (int)_currentSpeed * 25;
             }
 
-           
-
-          
-
-           Move(_currentSpeed);
+            Move(_currentSpeed);
         }
 
         public override void Draw()

@@ -81,6 +81,7 @@
   <ItemGroup>
     <Compile Include="Controls\IControl.cs" />
     <Compile Include="Controls\MoveControl.cs" />
+    <Compile Include="Controls\MoveControl2.cs" />
     <Compile Include="Core\BaseObject.cs" />
     <Compile Include="Core\Direction.cs" />
     <Compile Include="Environment\Sector.cs" />
