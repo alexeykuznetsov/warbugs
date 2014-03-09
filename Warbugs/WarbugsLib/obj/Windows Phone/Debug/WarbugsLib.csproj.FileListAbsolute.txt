@@ -18,6 +18,7 @@ C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\b
 C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Backgrounds\background13.xnb
 C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Parts\Bug1\LegsComp.xnb
 C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Controls\ControlCircle.xnb
+C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Parts\Bug1\CarapaceTopComp.xnb
 C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\SpriteFont1.xnb
 C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\SpriteFont1.spritefont
 C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\WarbugsLib.dll
@@ -25,4 +26,4 @@ C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\b
 C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\obj\Windows Phone\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\obj\Windows Phone\Debug\WarbugsLib.dll
 C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\obj\Windows Phone\Debug\WarbugsLib.pdb
-C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\bin\Windows Phone\Debug\Content\Parts\Bug1\CarapaceTopComp.xnb
+C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLib\obj\Windows Phone\Debug\WarbugsLib.csprojResolveAssemblyReference.cache

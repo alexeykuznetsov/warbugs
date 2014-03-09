@@ -1,1 +1,2 @@
 c:\users\kyznecov\documents\visual studio 2012\Projects\Warbugs\Warbugs\WarbugsLibContent\obj\Windows Phone\Debug\WarbugsLibContent.contentprojResolveAssemblyReference.cache
+C:\Users\user\Documents\Visual Studio 2012\Projects\Warbugs\Warbugs\WarbugsLibContent\obj\Windows Phone\Debug\WarbugsLibContent.contentprojResolveAssemblyReference.cache

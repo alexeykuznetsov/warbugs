@@ -36,8 +36,6 @@ namespace Warbugs
 
         List<Lifeform> _lifeforms = new List<Lifeform>();
 
-        World _world;
-
         MoveControl2 _moveCopntrol;
 
         SpriteFont _text;
@@ -60,6 +58,7 @@ namespace Warbugs
             timer.Draw += OnDraw;
 
             _camera = new Camera(SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Bounds);
+           
 
 
         }
@@ -75,39 +74,33 @@ namespace Warbugs
 
             timer.Start();
 
-            _world = new World(contentManager.Load<Texture2D>(@"Backgrounds\background13"), _camera, SharedGraphicsDeviceManager.Current.GraphicsDevice);
+            World.Init(contentManager.Load<Texture2D>(@"Backgrounds\background13"), _camera, SharedGraphicsDeviceManager.Current.GraphicsDevice);
 
             _text = contentManager.Load<SpriteFont>(@"SpriteFont1");
 
             TestBug testBug = new TestBug(SharedGraphicsDeviceManager.Current.GraphicsDevice, contentManager, _camera);
+
+            testBug.Position = new Vector2(Tools.Rand.Next(5000, 10000), Tools.Rand.Next(5000, 10000));
 
             _moveCopntrol = new MoveControl2(SharedGraphicsDeviceManager.Current.GraphicsDevice, contentManager);
 
             _lifeforms.Add(testBug);
 
 
-            for (int i = 0; i < 500; i++)
+            for (int i = 0; i < 70; i++)
             {
                 var tb = new TestBug(SharedGraphicsDeviceManager.Current.GraphicsDevice, contentManager, _camera);
 
-                tb.Position = new Vector2(Tools.Rand.Next(-5000, 5000), Tools.Rand.Next(-5000, 5000));
+                tb.Position = new Vector2(Tools.Rand.Next(5000, 10000), Tools.Rand.Next(5000, 10000));
                 _lifeforms.Add(tb);
                 tb.Live();
             }
             
-
             _camera.Focus(testBug);
-
-            
 
             Drawer.Init(SharedGraphicsDeviceManager.Current.GraphicsDevice, contentManager, _camera);
 
-         
-
-
             TouchPanel.EnabledGestures = GestureType.FreeDrag | GestureType.DragComplete;
-
-            
 
             base.OnNavigatedTo(e);
         }
@@ -172,25 +165,26 @@ namespace Warbugs
         {
             SharedGraphicsDeviceManager.Current.GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            //_world.Draw(_lifeforms[0].Position);
 
-            _world.Draw(_lifeforms[0].Position);
+            var v = _lifeforms[0].CurrentSector;
+
+            World.Instance.DrawAround(_lifeforms[0].CurrentSector);
 
             spriteBatch.Begin();
             spriteBatch.DrawString(_text, _moveCopntrol.Direction.Degrees.ToString(), Vector2.Zero, Color.White);
             spriteBatch.End();
 
-            Stopwatch sw = new Stopwatch();
 
-            sw.Start();
+
             foreach (var item in _lifeforms)
             {
                 item.RegisterOnDraw();
             }
-            sw.Stop();
 
-            sw.Start();
+           
             Drawer.Instance.DrawAll();
-            sw.Stop();
+
 
 
         }

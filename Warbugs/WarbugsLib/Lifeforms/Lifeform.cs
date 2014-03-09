@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WarbugsLib.Core;
+using WarbugsLib.Environment;
 using WarbugsLib.Lifeforms.Sprites;
 using WarbugsLib.Other;
 
@@ -15,7 +16,7 @@ namespace WarbugsLib.Lifeforms
     {
         protected CompositeSpriteBase _sprites;
 
-
+        public abstract Rectangle BoundingRect { get; }
 
         public Lifeform(GraphicsDevice device, ContentManager contentManager, Camera camera)
             : base()
@@ -25,12 +26,19 @@ namespace WarbugsLib.Lifeforms
 
         public abstract void Live();
 
-        //public abstract void Draw();
-
-        //public abstract void DrawShadow();
-
-        //public abstract void DrawItself();
-
         public abstract void RegisterOnDraw();
+
+        public Sector CurrentSector
+        {
+            get
+            {
+                return World.Instance.GetSectorByCoordinates(Position);
+            }
+        }
+
+        public bool IsIntersect(Rectangle rect)
+        {
+            return BoundingRect.Intersects(rect);
+        }
     }
 }

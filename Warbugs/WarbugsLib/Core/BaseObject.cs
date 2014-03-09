@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using WarbugsLib.Other;
 
 namespace WarbugsLib.Core
 {
@@ -15,7 +16,7 @@ namespace WarbugsLib.Core
             get { return _position; }
             set
             {
-                _position = value;
+               _position = value;
                 NotifyPropertyChanged("Position");
             }
         }

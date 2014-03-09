@@ -35,8 +35,6 @@ namespace WarbugsLib.Lifeforms.Impl
             : base(device, contentManager, camera)
         {
 
-            
-
             _sprites = new CompositeSpriteBase(contentManager, device, camera,
                 new LayerInfo() { Name = @"Parts\Bug1\LegsComp", Type = LayerType.Legs, ZIndex = 1, FramesCount = 8, FrameWidth = 512 },
                 new LayerInfo() { Name = @"Parts\Bug1\CarapaceComp", Type = LayerType.Body, ZIndex = 4, FramesCount = 1, FrameWidth = 512 },
@@ -44,7 +42,6 @@ namespace WarbugsLib.Lifeforms.Impl
                 new LayerInfo() { Name = @"Parts\Bug1\JawsComp", Type = LayerType.Jaws, ZIndex = 7, FramesCount = 6, FrameWidth = 512 },
                 new LayerInfo() { Name = @"Parts\Bug1\EyesComp", Type = LayerType.Eyes, ZIndex = 9, FramesCount = 1, FrameWidth = 512 },
                 new LayerInfo() { Name = @"Parts\Bug1\HeadComp", Type = LayerType.Head, ZIndex = 3, FramesCount = 1, FrameWidth = 512 }
-                
                 );
 
             CenterPoint = _sprites.CenterPoint;
@@ -81,61 +78,29 @@ namespace WarbugsLib.Lifeforms.Impl
             {
                 --distance;
 
-                int multiplier;
-
-                if (_nextDirection.Degrees > Direction.Degrees)
-                    multiplier = 1;
-                else multiplier = -1;
+                float speedFactor = 50;
 
                 var delta = Math.Abs(_nextDirection.Degrees - Direction.Degrees);
 
-                if (delta < 10) { Direction.Degrees = _nextDirection.Degrees; }
+                if (delta > 10)
+                {
+                    drawnSpeeds[LayerType.Legs] = (int)speedFactor * 4;
+
+                    _currentSpeed = speedFactor * 1.5f / delta;
+
+                    Direction.Degrees += (int)speedFactor / 13 * Direction.GetRotationDir(_nextDirection.Degrees);
+
+                }
                 else
-                    if (delta > 180)
-                    {
-                        if (delta - 180 > 5)
-                        {
-                            Direction.Degrees += 5 * multiplier;
-                            drawnSpeeds[LayerType.Legs] = 200;
-                        }
+                {
+                    _currentSpeed = speedFactor / 13 + Tools.Rand.Next(-1, 3);
+                    drawnSpeeds[LayerType.Legs] = (int)_currentSpeed * 25;
+                }
 
-
-                        if (delta - 180 < 10)
-                        {
-                            if (_currentSpeed > 4) _currentSpeed = Tools.Rand.Next(4, 8);
-                            else _currentSpeed += 0.5f;
-                            drawnSpeeds[LayerType.Legs] = 20;
-
-                        }
-                    }
-                    else
-                    {
-                        if (delta > 5)
-                        {
-                            Direction.Degrees -= 5 * multiplier;
-                            drawnSpeeds[LayerType.Legs] = 200;
-                        }
-
-
-                        if (delta < 10)
-                        {
-                            if (_currentSpeed > 4) _currentSpeed = Tools.Rand.Next(4, 8);
-                            else _currentSpeed += 0.5f;
-
-                            drawnSpeeds[LayerType.Legs] = 20;
-                        }
-                    }
-
-
-
-
-
-                //   Direction = _nextDirection;
-
-                // Direction.Degrees = 90;
 
                 if (drawnSpeeds[LayerType.Legs] != 200)
                     drawnSpeeds[LayerType.Legs] = (int)_currentSpeed * 25;
+
                 Move(_currentSpeed);
             }
             else
@@ -146,6 +111,12 @@ namespace WarbugsLib.Lifeforms.Impl
                 distance = Tools.Rand.Next(0, 200);
                 _changeDirection = true;
             }
+
+            if (Position.X < 2000)
+                Position = new Vector2(2000, Position.Y);
+
+            if (Position.Y < 2000)
+                Position = new Vector2(Position.X, 2000);
 
         }
 
@@ -177,27 +148,27 @@ namespace WarbugsLib.Lifeforms.Impl
             }
 
             Move(_currentSpeed);
+
+
+            if (Position.X < 2000)
+                Position = new Vector2(2000, Position.Y);
+
+            if (Position.Y < 2000)
+                Position = new Vector2(Position.X, 2000);
         }
 
-        //public override void Draw()
-        //{
-        //    _sprites.Draw(Position, (float)(Direction.Radians), drawnSpeeds);
-        //}
-
-        //public override void DrawShadow()
-        //{
-
-        //    _sprites.DrawShadows(Position, (float)(Direction.Radians), drawnSpeeds);
-        //}
-
-        //public override void DrawItself()
-        //{
-        //    _sprites.DrawsItself();
-        //}
-
+    
         public override void RegisterOnDraw()
         {
             _sprites.RegisterOnDraw(Position, (float)(Direction.Radians), drawnSpeeds);
+        }
+
+        public override Rectangle BoundingRect
+        {
+            get
+            {
+                return new Rectangle((int)Position.X, (int)Position.Y, 512, 512);
+            }
         }
     }
 }
