@@ -31,6 +31,18 @@ namespace WarbugsLib.Lifeforms.Impl
 
         protected Dictionary<LayerType, int> drawnSpeeds = new Dictionary<LayerType, int>();
 
+        public float Scale
+        {
+            get
+            {
+                return _sprites.Scale;
+            }
+            set
+            {
+                _sprites.Scale = value;
+            }
+        }
+
         public TestBug(GraphicsDevice device, ContentManager contentManager, Camera camera)
             : base(device, contentManager, camera)
         {
@@ -43,6 +55,8 @@ namespace WarbugsLib.Lifeforms.Impl
                 new LayerInfo() { Name = @"Parts\Bug1\EyesComp", Type = LayerType.Eyes, ZIndex = 9, FramesCount = 1, FrameWidth = 512 },
                 new LayerInfo() { Name = @"Parts\Bug1\HeadComp", Type = LayerType.Head, ZIndex = 3, FramesCount = 1, FrameWidth = 512 }
                 );
+
+
 
             CenterPoint = _sprites.CenterPoint;
 
@@ -130,13 +144,17 @@ namespace WarbugsLib.Lifeforms.Impl
         public void Update(Direction dir, float speedFactor)
         {
 
+            if (speedFactor > 20)
+            {
+            }
+
             var delta = Math.Abs(Direction.Degrees - dir.Degrees);
 
             if (delta > 10)
             {
                 drawnSpeeds[LayerType.Legs] = (int)speedFactor * 4;
 
-                _currentSpeed = speedFactor * 1.5f / delta;
+                _currentSpeed = speedFactor * 1f /(delta/1.5f);
 
                 Direction.Degrees += (int)speedFactor / 13 * Direction.GetRotationDir(dir.Degrees);
 
@@ -149,12 +167,13 @@ namespace WarbugsLib.Lifeforms.Impl
 
             Move(_currentSpeed);
 
-
             if (Position.X < 2000)
                 Position = new Vector2(2000, Position.Y);
 
             if (Position.Y < 2000)
                 Position = new Vector2(Position.X, 2000);
+
+
         }
 
     
@@ -167,7 +186,7 @@ namespace WarbugsLib.Lifeforms.Impl
         {
             get
             {
-                return new Rectangle((int)Position.X, (int)Position.Y, 512, 512);
+                return new Rectangle((int)Position.X+175, (int)Position.Y+150, 512-300, 512-300);
             }
         }
     }

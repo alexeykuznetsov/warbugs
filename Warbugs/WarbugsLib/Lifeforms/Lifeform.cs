@@ -16,12 +16,12 @@ namespace WarbugsLib.Lifeforms
     {
         protected CompositeSpriteBase _sprites;
 
-        public abstract Rectangle BoundingRect { get; }
+        
 
         public Lifeform(GraphicsDevice device, ContentManager contentManager, Camera camera)
             : base()
         {
-            
+            CanMove = true;
         }
 
         public abstract void Live();
@@ -36,9 +36,24 @@ namespace WarbugsLib.Lifeforms
             }
         }
 
-        public bool IsIntersect(Rectangle rect)
+        public abstract Rectangle BoundingRect { get; }
+        public bool IsIntersect()
         {
-            return BoundingRect.Intersects(rect);
+            return World.Instance.Spiecies.Any(x => x.BoundingRect.Intersects(BoundingRect) && x!=this);
         }
+
+        public bool CanMove { get; set; }
+        public override void Move(float distance)
+        {
+            if (CanMove)
+                base.Move(distance);
+            else
+            {
+              //  
+                Position = LastPosition;
+                CanMove = true;
+            }
+        }
+
     }
 }

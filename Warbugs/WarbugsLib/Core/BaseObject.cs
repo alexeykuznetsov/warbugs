@@ -10,12 +10,16 @@ namespace WarbugsLib.Core
 {
     public abstract class BaseObject : INotifyPropertyChanged
     {
+
+        public Vector2 LastPosition { get; set; }
+
         private Vector2 _position;
         public Vector2 Position
         {
             get { return _position; }
             set
             {
+                LastPosition = _position;
                _position = value;
                 NotifyPropertyChanged("Position");
             }
@@ -44,7 +48,7 @@ namespace WarbugsLib.Core
             Move(distance);
         }
 
-        public void Move(float distance)
+        public virtual void Move(float distance)
         {
             var x = (float)(distance * Math.Sin(Direction.Radians));
             var y = (float)(distance * Math.Cos(Direction.Radians));

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using WarbugsLib.Lifeforms;
 using WarbugsLib.Other;
 
 namespace WarbugsLib.Environment
@@ -20,6 +21,8 @@ namespace WarbugsLib.Environment
 
         public static World Instance { get; private set; }
 
+        public List<Lifeform> Spiecies { get; private set; }
+
         public static void Init(Texture2D texture, Camera camera, GraphicsDevice device)
         {
             Instance = new World(texture, camera, device);
@@ -27,6 +30,7 @@ namespace WarbugsLib.Environment
 
         private World(Texture2D texture, Camera camera, GraphicsDevice device)
         {
+            Spiecies = new List<Lifeform>();
 
             Sectors = new Sector[100, 100];
 

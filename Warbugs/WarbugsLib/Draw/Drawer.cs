@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -60,7 +61,7 @@ namespace WarbugsLib.Draw
 
             foreach (var item in items)
             {
-                _spriteBatch.Draw(item.Texture, item.Position, item.SourceRectangle, item.Color, item.Roation, item.Origin, 1f, SpriteEffects.None, 0f);
+                _spriteBatch.Draw(item.Texture, item.Position, item.SourceRectangle, item.Color, item.Roation, item.Origin, item.Scale, SpriteEffects.None, 0f);
             }
 
 
@@ -78,6 +79,20 @@ namespace WarbugsLib.Draw
         {
             _items.Add(drawInfo);
         }
+
+   public void DrawOne(Texture2D texture, Rectangle rect, Color color)
+   {
+       _spriteBatch.Begin(
+            SpriteSortMode.Immediate,
+            BlendState.AlphaBlend,
+            null, null, null, null,
+            _camera.TransformMatrix);
+
+       _spriteBatch.Draw(texture, rect, color);
+
+       _spriteBatch.End();
+   }
+
 
     }
 }

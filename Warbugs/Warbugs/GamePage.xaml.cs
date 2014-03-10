@@ -34,11 +34,12 @@ namespace Warbugs
 
         Camera _camera;
 
-        List<Lifeform> _lifeforms = new List<Lifeform>();
-
         MoveControl2 _moveCopntrol;
 
         SpriteFont _text;
+
+        Texture2D DEBUG_Rect;
+
 
         bool _isDragStarted;
 
@@ -58,7 +59,7 @@ namespace Warbugs
             timer.Draw += OnDraw;
 
             _camera = new Camera(SharedGraphicsDeviceManager.Current.GraphicsDevice.Viewport.Bounds);
-           
+
 
 
         }
@@ -80,22 +81,26 @@ namespace Warbugs
 
             TestBug testBug = new TestBug(SharedGraphicsDeviceManager.Current.GraphicsDevice, contentManager, _camera);
 
+            testBug.Scale = 1f;
+
             testBug.Position = new Vector2(Tools.Rand.Next(5000, 10000), Tools.Rand.Next(5000, 10000));
 
             _moveCopntrol = new MoveControl2(SharedGraphicsDeviceManager.Current.GraphicsDevice, contentManager);
 
-            _lifeforms.Add(testBug);
+            World.Instance.Spiecies.Add(testBug);
 
 
             for (int i = 0; i < 70; i++)
             {
                 var tb = new TestBug(SharedGraphicsDeviceManager.Current.GraphicsDevice, contentManager, _camera);
 
+                tb.Scale = Tools.Rand.Next(90, 110) / 100f;
+                
                 tb.Position = new Vector2(Tools.Rand.Next(5000, 10000), Tools.Rand.Next(5000, 10000));
-                _lifeforms.Add(tb);
+                World.Instance.Spiecies.Add(tb);
                 tb.Live();
             }
-            
+
             _camera.Focus(testBug);
 
             Drawer.Init(SharedGraphicsDeviceManager.Current.GraphicsDevice, contentManager, _camera);
@@ -147,8 +152,7 @@ namespace Warbugs
 
 
 
-            ((TestBug)_lifeforms[0]).Update(_moveCopntrol.Direction, _moveCopntrol.SpeedFactor);
-
+            ((TestBug)World.Instance.Spiecies[0]).Update(_moveCopntrol.Direction, _moveCopntrol.SpeedFactor);
 
             testDegrees += 1f;
 
@@ -167,9 +171,7 @@ namespace Warbugs
 
             //_world.Draw(_lifeforms[0].Position);
 
-            var v = _lifeforms[0].CurrentSector;
-
-            World.Instance.DrawAround(_lifeforms[0].CurrentSector);
+            World.Instance.DrawAround(World.Instance.Spiecies[0].CurrentSector);
 
             spriteBatch.Begin();
             spriteBatch.DrawString(_text, _moveCopntrol.Direction.Degrees.ToString(), Vector2.Zero, Color.White);
@@ -177,12 +179,36 @@ namespace Warbugs
 
 
 
-            foreach (var item in _lifeforms)
+            foreach (var item in World.Instance.Spiecies)
             {
                 item.RegisterOnDraw();
+
+                if (item.IsIntersect())
+                {
+                 //   DEBUG_Rect = new Texture2D(SharedGraphicsDeviceManager.Current.GraphicsDevice, 1, 1);
+                 //  DEBUG_Rect.SetData(new Color[] { Color.White });
+                  //  Drawer.Instance.DrawOne(DEBUG_Rect, item.BoundingRect, Color.White);
+                    item.CanMove = false;
+                  
+                }
+
             }
 
-           
+
+
+            //if (v.Count() != 0)
+            //{
+            //    foreach (var item in v)
+            //    {
+            //        DEBUG_Rect = new Texture2D(SharedGraphicsDeviceManager.Current.GraphicsDevice,1,1);
+            //        DEBUG_Rect.SetData(new Color[] { Color.White });
+            //        Drawer.Instance.DrawOne(DEBUG_Rect, item.BoundingRect, Color.White);
+            //        item.CanMove = false;
+            //        item.Move(-1f);
+
+            //    }
+            //}
+
             Drawer.Instance.DrawAll();
 
 
